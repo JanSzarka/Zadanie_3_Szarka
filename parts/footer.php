@@ -27,8 +27,8 @@
 Created and designed by Lívia
 </div>
   </footer>
-<script src="js/accordion.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/slider.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

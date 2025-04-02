@@ -17,6 +17,12 @@
 .question::before {
     content: '+ ';
 }
+.accordion-collapse {
+    display: none;
+}
+.accordion-collapse.show {
+    display: block;
+}
 
 .question:hover, 
 .accordion.active .question{

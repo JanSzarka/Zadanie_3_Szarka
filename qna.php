@@ -27,21 +27,20 @@ include_once "parts/nav.php";
 
           if (!empty($qnaData)) {
               echo '<div class="accordion" id="accordion">';
-              foreach ($qnaData as $element) {
+              foreach ($qnaData as $index => $element) {
+                  $id = 'colapse' . $index;
                   echo '<div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                        ' . $element['otazka'] . '
-                                    </button>
-                            </h2>
-                        </div>';
-                  echo '<div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                        ' . $element['odpoved'] . '
-                                    </button>
-                            </h2>
-                        </div>';
+                          <h2 class="accordion-header" id="heading' . $index . '">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#' . $id . '" aria-expanded="false" aria-controls="' . $id . '">
+                                  ' . $element['otazka'] . '
+                              </button>
+                          </h2>
+                            <div id="' . $id . '" class="accordion-collapse collapse" aria-labelledby="heading' . $index . '" data-bs-parent="#accordion">
+                                  <div class="accordion-body">
+                                      ' . $element['odpoved'] . '
+                                  </div>
+                              </div>
+                          </div>';
               }
               echo "</div>";
           } else {
