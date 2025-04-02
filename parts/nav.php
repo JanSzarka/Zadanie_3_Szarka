@@ -2,10 +2,11 @@
 include_once "functions.php";
 
 $menu = getMenuData("header");
+
 ?>
 <header class="container main-header">
     <div class="logo-holder">
-        <a href="<?php echo $menu['name']['path']; ?>">
+        <a href="<?php echo isset($menu['name']['path']) ? $menu['name']['path'] : '#'; ?>">
             <img alt="img" src="img/logo.png" height="40">
         </a>
     </div>

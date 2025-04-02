@@ -23,7 +23,30 @@ include_once "parts/nav.php";
            use otazkyodpovede\QnA;
 
           $qna = new QnA();
-          $qna->insertQnA();
+          $qnaData = $qna -> getQna();
+
+          if (!empty($qnaData)) {
+              echo '<div class="accordion" id="accordion">';
+              foreach ($qnaData as $element) {
+                  echo '<div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        ' . $element['otazka'] . '
+                                    </button>
+                            </h2>
+                        </div>';
+                  echo '<div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        ' . $element['odpoved'] . '
+                                    </button>
+                            </h2>
+                        </div>';
+              }
+              echo "</div>";
+          } else {
+              echo "<p> No Qna </p>";
+          }
           ?>
   </main>
   <?php

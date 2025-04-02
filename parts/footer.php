@@ -27,6 +27,7 @@
 Created and designed by Lívia
 </div>
   </footer>
+<script src="js/accordion.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/slider.js"></script>
 </body>

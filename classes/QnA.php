@@ -4,6 +4,8 @@ namespace otazkyodpovede;
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/db/config.php');
 use PDO;
+use PDOException;
+
 class QnA{
     private $conn;
     public function __construct() {
@@ -54,5 +56,17 @@ class QnA{
             // Uzatvorenie spojenia
             $this->conn = null;
         }
+    }
+    public function getQnA(){
+        try{
+            $sql = "SELECT * FROM qna";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute();
+            return $statement->fetchAll();
+        }catch (Exception $e){
+            echo "Chyba pri načítaní údajov" . $e->getMessage();
+            return [];
+        }
+
     }
 }
